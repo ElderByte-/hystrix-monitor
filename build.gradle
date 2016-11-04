@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+
+compileJava {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+
+    options.encoding = "UTF-8"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR2'
+    }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Spring Cloud Netflix: Eureka + Turbine + Hystrix Dashboard
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.cloud:spring-cloud-starter-turbine")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix-dashboard")
+
+    testCompile("junit:junit")
+}
+
+version =  '0.1.0'
+
+jar {
+    baseName = 'hystrix-monitor'
+}
+
+bootRepackage  {
+    classifier = 'exec'
+}
+
+/**
+ * The stage task used by Heroku-Style PaaS.
+ */
+task stage (dependsOn: ["build"])
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+}
