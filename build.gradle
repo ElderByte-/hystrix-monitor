@@ -33,15 +33,12 @@ dependencyManagement {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
-    // Spring Cloud Netflix: Eureka + Turbine
+    // Spring Cloud Netflix: Eureka + Turbine + Hystrix Dashboard
 
     compile("org.springframework.cloud:spring-cloud-starter")
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
     compile("org.springframework.cloud:spring-cloud-starter-turbine")
-
-    // RabbitMQ
-    //compile("org.springframework.cloud:spring-cloud-starter-turbine-stream")
-    ///compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix-dashboard")
 
     testCompile("junit:junit")
 }
