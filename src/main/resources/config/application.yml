@@ -19,9 +19,12 @@ logging:
 
 
 turbine:
+  aggregator:
+    clusterConfig: ${CLUSTER_LIST}
   appConfig: ${SERVICE_LIST}
-  clusterNameExpression: "'default'"
 
+
+_clusterNameExpression: "'default'"
 
 eureka:
   client:
