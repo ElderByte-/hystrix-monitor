@@ -17,6 +17,12 @@ logging:
         root: WARN
         com.elderbyte: INFO
 
+
+turbine:
+  appConfig: ${SERVICE_LIST}
+  clusterNameExpression: "'default'"
+
+
 eureka:
   client:
     serviceUrl:
