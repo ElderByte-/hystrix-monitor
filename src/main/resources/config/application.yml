@@ -1,5 +1,16 @@
+info:
+  component: Turbine
+
+PREFIX:
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
 server:
-  port: ${PORT:8762}
+  port: ${PORT:8989}
 
 logging:
     level:

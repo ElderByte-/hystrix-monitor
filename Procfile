@@ -1,2 +1,2 @@
-web: ls build/libs && java -jar build/libs/hystrix-monitor-*-exec.jar
+web: ls build/libs && java -jar build/libs/hystrix-turbine-*-exec.jar
 
