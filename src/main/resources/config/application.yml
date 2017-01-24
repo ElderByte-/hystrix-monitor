@@ -30,6 +30,6 @@ eureka:
   client:
     healthcheck.enabled: true
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://eureka-server-web.discoverd:8080/eureka/}
+      defaultZone: ${EUREKA_URL:http://${EUREKA_USER:admin}:${EUREKA_PASS:1337}@eureka-web.discoverd:8080/eureka/}
   instance:
       preferIpAddress: true
